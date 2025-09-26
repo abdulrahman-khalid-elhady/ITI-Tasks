@@ -1,0 +1,84 @@
+
+    #region task1
+    public class product
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public override string ToString()
+        {
+            return $"Product Name: {Name}, Price: ${Price}";
+        }
+        
+    }
+
+#endregion
+
+#region task2&5
+public static class stringExs
+{
+    public static int countWords(this string str)
+    {
+        return str.Split(' ').Length;
+    }
+    public static string reverseString(this string str)
+    {
+        for (int i = 0; i < str.Length / 2; i++)
+        {
+            char temp = str[i];
+            str = str.Remove(i, 1).Insert(i, str[str.Length - 1 - i].ToString());
+            str = str.Remove(str.Length - 1 - i, 1).Insert(str.Length - 1 - i, temp.ToString());
+        }
+        return str;
+    }
+}
+#endregion
+
+#region task3
+public static class intExs
+{
+    public static bool isEven(this int n)
+    {
+        return n % 2 == 0;
+    }
+}
+#endregion
+
+#region task4
+public static class  dateTimeExs 
+{
+    public static int age(this DateTime DoB)
+    {
+        DateTime DT =DateTime.Now;
+        int age = DT.Year - DoB.Year;
+        if(DT.Month < DoB.Month || (DT.Month == DoB.Month && DT.Day < DoB.Day))
+        {
+            age--;
+        }
+        return age;
+    }
+}
+
+#endregion
+public class Program
+{
+    //-1
+    public static object CreateProduct(string name, decimal price)
+    {
+        return new { Name = name, Price = price };
+    }
+
+    public static void Main(string[] args)
+    {
+        var prod1 = CreateProduct("Laptop", 999.99m);
+        var prod2 = CreateProduct("Smartphone", 499.49m);
+        Console.WriteLine(prod1);
+        Console.WriteLine(prod2);
+        string example = "Hello World from CSharp";
+        Console.WriteLine($"Word Count: {example.countWords()}");
+        Console.WriteLine($"Reversed String: {example.reverseString()}");
+        int number = 42;
+        Console.WriteLine($"{number} is even: {number.isEven()}");
+        DateTime dob = new DateTime(2006, 5, 10);
+        Console.WriteLine($"Age: {dob.age()} years");
+    }
+}
