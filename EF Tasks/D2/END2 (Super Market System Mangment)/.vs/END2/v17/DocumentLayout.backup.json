@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\boody\\source\\repos\\END2\\",
+  "WorkspaceRootPath": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1EA0B958-B3F9-4D8A-A07D-E3544C382479}|END2.csproj|c:\\users\\boody\\source\\repos\\end2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1EA0B958-B3F9-4D8A-A07D-E3544C382479}|END2.csproj|c:\\users\\boody\\desktop\\iti tasks rebo\\ef tasks\\d2\\end2 (super market system mangment)\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1EA0B958-B3F9-4D8A-A07D-E3544C382479}|END2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1EA0B958-B3F9-4D8A-A07D-E3544C382479}|END2.csproj|C:\\Users\\boody\\source\\repos\\END2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1EA0B958-B3F9-4D8A-A07D-E3544C382479}|END2.csproj|c:\\users\\boody\\desktop\\iti tasks rebo\\ef tasks\\d2\\end2 (super market system mangment)\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1EA0B958-B3F9-4D8A-A07D-E3544C382479}|END2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\boody\\source\\repos\\END2\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\boody\\source\\repos\\END2\\Form1.cs",
+              "ToolTip": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAHgBAAAAAAAAAAAqwLABAABZAAAAAAAAAA==",
+              "ViewState": "AgIAAJcBAAAAAAAAAAAIwLoBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-25T20:57:07.997Z",
               "EditorCaption": ""
@@ -49,12 +49,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\boody\\source\\repos\\END2\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\boody\\source\\repos\\END2\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T20:15:51.339Z"
+              "WhenOpened": "2025-09-25T20:15:51.339Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

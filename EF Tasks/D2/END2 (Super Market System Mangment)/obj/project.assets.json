@@ -4728,11 +4728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\boody\\source\\repos\\END2\\END2.csproj",
+      "projectUniqueName": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\END2.csproj",
       "projectName": "END2",
-      "projectPath": "C:\\Users\\boody\\source\\repos\\END2\\END2.csproj",
+      "projectPath": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\END2.csproj",
       "packagesPath": "C:\\Users\\boody\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\boody\\source\\repos\\END2\\obj\\",
+      "outputPath": "C:\\Users\\boody\\Desktop\\ITI Tasks Rebo\\EF Tasks\\D2\\END2 (Super Market System Mangment)\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
