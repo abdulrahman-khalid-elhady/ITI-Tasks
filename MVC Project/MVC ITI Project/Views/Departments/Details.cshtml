@@ -1,0 +1,165 @@
+﻿@model MVC_ITI_Project.Models.Department
+@{
+	ViewData["Title"] = "Edit Department";
+}
+
+
+<h1 class="text-center">Details Department</h1>
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-md-6">
+			<h4>Department Details</h4>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-4">
+					@Html.DisplayNameFor(model => model.Id)
+				</dt>
+				<dd class="col-sm-8">
+					@Html.DisplayFor(model => model.Id)
+				</dd>
+				<dt class="col-sm-4">
+					@Html.DisplayNameFor(model => model.Name)
+				</dt>
+				<dd class="col-sm-8">
+					@Html.DisplayFor(model => model.Name)
+				</dd>
+				<dt class="col-sm-4">
+					@Html.DisplayNameFor(model => model.ManagerName)
+				</dt>
+				<dd class="col-sm-8">
+					@Html.DisplayFor(model => model.ManagerName)
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<h4>Students in this Department</h4>
+			<hr />
+			@if (Model.Students != null && Model.Students.Any())
+			{
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.DisplayName("ID")</th>
+							<th>@Html.DisplayName("Name")</th>
+							<th>@Html.DisplayName("Address")</th>
+							<th>@Html.DisplayName("Grade")</th>
+							<th>@Html.DisplayName("Image")</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var student in Model.Students)
+						{
+							<tr>
+								<td>@student.Id</td>
+								<td>@student.Name</td>
+								<td>@student.Address</td>
+								<td>@student.Grade</td>
+								<td>
+									@if (!string.IsNullOrEmpty(student.Image))
+									{
+										<img src="@student.Image" alt="@student.Name" width="50" height="50" />
+									}
+									else
+									{
+										<span>No Image</span>
+									}
+								</td>
+							</tr>
+
+	}
+		</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No students found in this department.</p>
+			}
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<h4>Courses in this Department</h4>
+			<hr />
+			@if (Model.Courses != null && Model.Courses.Any())
+			{
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.DisplayName("ID")</th>
+							<th>@Html.DisplayName("Name")</th>
+							<th>@Html.DisplayName("Hours")</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var course in Model.Courses)
+						{
+							<tr>
+								<td>@course.Id</td>
+								<td>@course.Name</td>
+								<td>@course.Hours</td>
+							</tr>
+	}
+		</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No courses found in this department.</p>
+			}
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<h4>Instructors in this Department</h4>
+			<hr />
+			@if (Model.Instructors != null && Model.Instructors.Any())
+			{
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.DisplayName("ID")</th>
+							<th>@Html.DisplayName("Name")</th>
+							<th>@Html.DisplayName("Salary")</th>
+							<th>@Html.DisplayName("Address")</th>
+							<th>@Html.DisplayName("Image")</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var instructor in Model.Instructors)
+						{
+							<tr>
+								<td>@instructor.Id</td>
+								<td>@instructor.Name</td>
+								<td>@instructor.Salary</td>
+								<td>@instructor.Address</td>
+								<td>
+									@if (!string.IsNullOrEmpty(instructor.Image))
+									{
+										<img src="@instructor.Image" alt="@instructor.Name" width="50" height="50" />
+									}
+									else
+									{
+										<span>No Image</span>
+									}
+								</td>
+							</tr>
+	}
+		</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No instructors found in this department.</p>
+			}
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+			<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit Department</a>
+		</div>
+	</div>
+</div>
+

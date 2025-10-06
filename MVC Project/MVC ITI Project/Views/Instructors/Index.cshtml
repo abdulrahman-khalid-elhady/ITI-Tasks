@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MVC_ITI_Project.Models.Instructor>
+
+@{
+    ViewData["Title"] = "Instructors";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Instructors List</h2>
+
+    <!-- Search Form -->
+    <form method="get" asp-action="Index" class="row g-2 mb-4">
+        <div class="col-md-10">
+            <input type="text" name="searchQuery" class="form-control" placeholder="Search by name, address, salary, department, or course..." value="@(Context.Request.Query["searchQuery"])" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-search"></i> Search
+            </button>
+        </div>
+    </form>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="Add" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add New Instructor
+        </a>
+    </div>
+
+    <table class="table table-striped table-hover align-middle shadow-sm">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.First().Name)</th>
+                <th>@Html.DisplayNameFor(m => m.First().Salary)</th>
+                <th>@Html.DisplayNameFor(m => m.First().Address)</th>
+                <th>Department</th>
+                <th>Course</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Salary</td>
+                    <td>@item.Address</td>
+                    <td>@item.Department?.Name</td>
+                    <td>@item.Course?.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
