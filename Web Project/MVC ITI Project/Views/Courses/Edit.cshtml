@@ -1,0 +1,76 @@
+﻿@model MVC_ITI_Project.Models.Course
+
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="modern-card animate-fade-in-up">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-warning bg-opacity-10 rounded-circle p-3 me-3">
+                        <i class="bi bi-pencil-square text-warning fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 fw-bold">Edit Course</h4>
+                        <p class="text-muted mb-0">Update course information</p>
+                    </div>
+                </div>
+
+                <form asp-action="Edit" method="post" class="form-modern">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-modern alert-danger"></div>
+                    
+                    <input type="hidden" asp-for="Id" />
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label-modern"></label>
+                            <input asp-for="Name" class="form-control form-control-modern" placeholder="Enter course name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="DeptId" class="form-label-modern"></label>
+                            <select asp-for="DeptId" asp-items="ViewBag.DeptId" class="form-control form-control-modern">
+                                <option value="">Select Department</option>
+                            </select>
+                            <span asp-validation-for="DeptId" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label asp-for="Degree" class="form-label-modern"></label>
+                            <input asp-for="Degree" class="form-control form-control-modern" placeholder="Total degree" />
+                            <span asp-validation-for="Degree" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label asp-for="MinimumDegree" class="form-label-modern"></label>
+                            <input asp-for="MinimumDegree" class="form-control form-control-modern" placeholder="Minimum degree" />
+                            <span asp-validation-for="MinimumDegree" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label asp-for="Hours" class="form-label-modern"></label>
+                            <input asp-for="Hours" class="form-control form-control-modern" placeholder="Course hours" />
+                            <span asp-validation-for="Hours" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a asp-action="Index" class="btn btn-modern btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Cancel
+                        </a>
+                        <button type="submit" class="btn btn-modern btn-warning">
+                            <i class="bi bi-check-lg me-2"></i>Update Course
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,101 @@
+﻿@model MVC_ITI_Project.Models.Instructor
+
+@{
+    ViewData["Title"] = "Add Instructor";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="modern-card animate-fade-in-up">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-danger bg-opacity-10 rounded-circle p-3 me-3">
+                        <i class="bi bi-person-plus text-danger fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 fw-bold">Add New Instructor</h4>
+                        <p class="text-muted mb-0">Create a new instructor record</p>
+                    </div>
+                </div>
+
+                <form asp-action="Add" method="post" class="form-modern">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-modern alert-danger"></div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label-modern"></label>
+                            <input asp-for="Name" class="form-control form-control-modern" placeholder="Enter instructor name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="Salary" class="form-label-modern"></label>
+                            <input asp-for="Salary" class="form-control form-control-modern" placeholder="Enter salary" />
+                            <span asp-validation-for="Salary" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="DeptId" class="form-label-modern"></label>
+                            <select asp-for="DeptId" asp-items="ViewBag.DeptId" class="form-control form-control-modern" id="deptSelect">
+                                <option value="">Select Department</option>
+                            </select>
+                            <span asp-validation-for="DeptId" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="CrsId" class="form-label-modern"></label>
+                            <select asp-for="CrsId" asp-items="ViewBag.CrsId" class="form-control form-control-modern" id="courseSelect">
+                                <option value="">Select Course</option>
+                            </select>
+                            <span asp-validation-for="CrsId" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="Address" class="form-label-modern"></label>
+                            <input asp-for="Address" class="form-control form-control-modern" placeholder="Enter address" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="Image" class="form-label-modern"></label>
+                            <input asp-for="Image" class="form-control form-control-modern" placeholder="Enter image URL" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a asp-action="Index" class="btn btn-modern btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Cancel
+                        </a>
+                        <button type="submit" class="btn btn-modern btn-danger">
+                            <i class="bi bi-check-lg me-2"></i>Create Instructor
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById('deptSelect').addEventListener('change', function() {
+            const deptId = this.value;
+            const courseSelect = document.getElementById('courseSelect');
+            
+            if (deptId) {
+                fetch(`/Instructors/GetCoursesByDepartment?deptId=${deptId}`)
+                    .then(response => response.json())
+                    .then(courses => {
+                        courseSelect.innerHTML = '<option value="">Select Course</option>';
+                        courses.forEach(course => {
+                            courseSelect.innerHTML += `<option value="${course.id}">${course.name}</option>`;
+                        });
+                    });
+            } else {
+                courseSelect.innerHTML = '<option value="">Select Course</option>';
+            }
+        });
+    </script>
+}

@@ -1,0 +1,54 @@
+﻿@model MVC_ITI_Project.Models.Department
+
+@{
+    ViewData["Title"] = "Add Department";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="modern-card animate-fade-in-up">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-success bg-opacity-10 rounded-circle p-3 me-3">
+                        <i class="bi bi-building-add text-success fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 fw-bold">Add New Department</h4>
+                        <p class="text-muted mb-0">Create a new academic department</p>
+                    </div>
+                </div>
+
+                <form asp-action="Add" method="post" class="form-modern">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-modern alert-danger"></div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label-modern"></label>
+                            <input asp-for="Name" class="form-control form-control-modern" placeholder="Enter department name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="ManagerName" class="form-label-modern"></label>
+                            <input asp-for="ManagerName" class="form-control form-control-modern" placeholder="Enter manager name" />
+                            <span asp-validation-for="ManagerName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a asp-action="Index" class="btn btn-modern btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Cancel
+                        </a>
+                        <button type="submit" class="btn btn-modern btn-success">
+                            <i class="bi bi-check-lg me-2"></i>Create Department
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

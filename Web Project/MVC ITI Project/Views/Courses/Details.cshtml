@@ -1,0 +1,69 @@
+﻿@model MVC_ITI_Project.Models.Course
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Course Details</h2>
+
+    <div class="row g-4">
+        <div class="col-lg-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h4 class="mb-3">@Model.Name</h4>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">ID</dt>
+                        <dd class="col-sm-8">@Model.Id</dd>
+                        <dt class="col-sm-4">Degree</dt>
+                        <dd class="col-sm-8">@Model.Degree</dd>
+                        <dt class="col-sm-4">Min Degree</dt>
+                        <dd class="col-sm-8">@Model.MinimumDegree</dd>
+                        <dt class="col-sm-4">Hours</dt>
+                        <dd class="col-sm-8">@Model.Hours</dd>
+                        <dt class="col-sm-4">Department</dt>
+                        <dd class="col-sm-8">@Model.Department?.Name</dd>
+                    </dl>
+                </div>
+                <div class="card-footer bg-transparent d-flex justify-content-end gap-2">
+                    <a asp-action="Index" class="btn btn-outline-secondary">Back</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="mb-3">Enrolled Students</h5>
+                    @if (Model.CourseStudents != null && Model.CourseStudents.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Student</th>
+                                        <th class="text-center">Degree</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var cs in Model.CourseStudents)
+                                {
+                                    <tr>
+                                        <td>@cs.Student?.Name</td>
+                                        <td class="text-center">@cs.Degree</td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-muted">No students enrolled.</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

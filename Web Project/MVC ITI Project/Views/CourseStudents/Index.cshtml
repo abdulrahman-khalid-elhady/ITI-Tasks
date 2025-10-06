@@ -1,0 +1,105 @@
+@model IEnumerable<MVC_ITI_Project.Models.CourseStudents>
+
+@{
+    ViewData["Title"] = "Enrollments";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 animate-fade-in-up">
+    <div>
+        <h2 class="mb-1 fw-bold">Enrollments Management</h2>
+        <p class="text-muted mb-0">Manage student course enrollments and grades</p>
+    </div>
+    <a class="btn btn-modern btn-info" asp-action="Create">
+        <i class="bi bi-plus-lg me-2"></i>Add Enrollment
+    </a>
+</div>
+
+<!-- Modern Table -->
+<div class="modern-card animate-fade-in-up animate-delay-1">
+    <div class="table-responsive">
+        <table class="table modern-table mb-0">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Course</th>
+                    <th>Grade</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="animate-fade-in-up">
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                                    <i class="bi bi-person text-primary"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold">@item.Student?.Name</div>
+                                    <small class="text-muted">ID: @item.StdId</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-warning bg-opacity-10 rounded-circle p-2 me-3">
+                                    <i class="bi bi-book text-warning"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold">@item.Course?.Name</div>
+                                    <small class="text-muted">ID: @item.CrsId</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="fw-semibold @(item.Degree >= 80 ? "text-success" : item.Degree >= 60 ? "text-warning" : "text-danger")">
+                                @item.Degree
+                            </span>
+                        </td>
+                        <td>
+                            @if (item.Degree >= 80)
+                            {
+                                <span class="badge badge-modern bg-success">Excellent</span>
+                            }
+                            else if (item.Degree >= 60)
+                            {
+                                <span class="badge badge-modern bg-warning">Good</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-modern bg-danger">Needs Improvement</span>
+                            }
+                        </td>
+                        <td class="text-end">
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-sm btn-outline-info" asp-action="Details" asp-route-id="@item.Id" title="View Details">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id" title="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 animate-fade-in-up">
+        <i class="bi bi-clipboard-check display-1 text-muted"></i>
+        <h4 class="mt-3 text-muted">No enrollments found</h4>
+        <p class="text-muted">Start by adding your first enrollment to the system.</p>
+        <a asp-action="Create" class="btn btn-modern btn-info">
+            <i class="bi bi-plus-lg me-2"></i>Add First Enrollment
+        </a>
+    </div>
+}

@@ -1,0 +1,24 @@
+@model MVC_ITI_Project.Models.CourseStudents
+@{
+    ViewData["Title"] = "Enrollment Details";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title mb-3">Enrollment Details</h4>
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Student</dt>
+            <dd class="col-sm-9">@Model.Student?.Name</dd>
+            <dt class="col-sm-3">Course</dt>
+            <dd class="col-sm-9">@Model.Course?.Name</dd>
+            <dt class="col-sm-3">Degree</dt>
+            <dd class="col-sm-9">@Model.Degree</dd>
+        </dl>
+        <div class="mt-3 d-flex gap-2">
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+        </div>
+    </div>
+</div>
+
+
